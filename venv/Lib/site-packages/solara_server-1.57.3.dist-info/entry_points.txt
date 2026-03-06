@@ -1,0 +1,5 @@
+[console_scripts]
+solara = solara.__main__:main
+
+[pyinstaller40]
+hook-dirs = solara.server.pyinstaller:get_hook_dirs

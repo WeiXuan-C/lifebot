@@ -1,0 +1,64 @@
+Metadata-Version: 2.4
+Name: reacton
+Version: 1.9.1
+Dynamic: Summary
+Project-URL: Home, https://www.github.com/widgetti/reacton
+Project-URL: Documentation, https://reacton.solara.dev
+Project-URL: Source code, https://www.github.com/widgetti/reacton
+Author-email: "Maarten A. Breddels" <maartenbreddels@gmail.com>
+License: The MIT License (MIT)
+        
+        Copyright (c) 2022 Maarten A. Breddels
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+License-File: LICENSE
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Jupyter
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: User Interfaces
+Requires-Dist: ipywidgets
+Requires-Dist: typing-extensions>=4.1.1
+Provides-Extra: dev
+Requires-Dist: bqplot; extra == 'dev'
+Requires-Dist: bump2version; extra == 'dev'
+Requires-Dist: coverage; extra == 'dev'
+Requires-Dist: ipykernel; extra == 'dev'
+Requires-Dist: ipyvuetify; extra == 'dev'
+Requires-Dist: jinja2; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Requires-Dist: numpy<2; extra == 'dev'
+Requires-Dist: pandas; extra == 'dev'
+Requires-Dist: pre-commit; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: ruff; (python_version > '3.6') and extra == 'dev'
+Provides-Extra: generate
+Requires-Dist: black; extra == 'generate'
+Requires-Dist: bqplot; extra == 'generate'
+Requires-Dist: jinja2; extra == 'generate'
+Requires-Dist: mypy; extra == 'generate'
+Requires-Dist: ruff; (python_version > '3.6') and extra == 'generate'
