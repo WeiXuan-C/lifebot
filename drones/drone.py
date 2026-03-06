@@ -51,5 +51,12 @@ class Drone:
         self.battery -= cost
         grid.mark_scanned(self.x, self.y)
         found = grid.has_survivor(self.x, self.y)
+        severity = grid.survivor_severity(self.x, self.y) if found else None
         self.status = "idle"
-        return {"x": self.x, "y": self.y, "found": found, "battery": self.battery}
+        return {
+            "x": self.x,
+            "y": self.y,
+            "found": found,
+            "severity": severity,
+            "battery": self.battery,
+        }

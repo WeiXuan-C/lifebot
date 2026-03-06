@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Callable
 
 from mcp.server.mcpserver import MCPServer
 
@@ -7,9 +7,10 @@ from simulation.grid import Grid
 
 
 class DroneMCPServer:
-    def __init__(self, grid: Grid, drones: list[Drone]):
+    def __init__(self, grid: Grid, drones: list[Drone], on_update: Callable[[Grid, list[Drone]], None] | None = None):
         self.grid = grid
         self.drones: dict[str, Drone] = {d.drone_id: d for d in drones}
+        self.on_update = on_update
         self.server = MCPServer(
             name="lifebot-drone-sim",
             title="LifeBot Drone Simulation",
@@ -26,6 +27,7 @@ class DroneMCPServer:
         def move_to(drone_id: str, x: int, y: int) -> dict[str, Any]:
             drone = self._get_drone(drone_id)
             state = drone.move_to(x, y, self.grid)
+            self._notify_update()
             return {"drone": state}
 
         @self.server.tool(name="get_battery_status", structured_output=True)
@@ -38,7 +40,12 @@ class DroneMCPServer:
             drone = self._get_drone(drone_id)
             result = drone.thermal_scan(self.grid)
             result["drone_id"] = drone.drone_id
+            self._notify_update()
             return result
+
+    def _notify_update(self) -> None:
+        if self.on_update:
+            self.on_update(self.grid, list(self.drones.values()))
 
     def _get_drone(self, drone_id: str) -> Drone:
         if drone_id not in self.drones:

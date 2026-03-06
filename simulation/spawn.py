@@ -16,7 +16,8 @@ def create_simulation(
     all_positions = grid.all_positions()
     random.shuffle(all_positions)
     for x, y in all_positions[:survivor_count]:
-        grid.set_survivor(x, y)
+        severity = random.randint(1, 3)
+        grid.set_survivor(x, y, severity)
     drones: list[Drone] = []
     for i in range(drone_count):
         drones.append(Drone(drone_id=f"drone_{i+1}", x=0, y=0))

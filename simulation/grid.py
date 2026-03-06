@@ -6,6 +6,7 @@ from typing import Iterable
 class Cell:
     has_survivor: bool = False
     scanned: bool = False
+    survivor_severity: int | None = None
 
 
 class Grid:
@@ -20,8 +21,10 @@ class Grid:
     def get_cell(self, x: int, y: int) -> Cell:
         return self._cells[y][x]
 
-    def set_survivor(self, x: int, y: int) -> None:
-        self.get_cell(x, y).has_survivor = True
+    def set_survivor(self, x: int, y: int, severity: int) -> None:
+        cell = self.get_cell(x, y)
+        cell.has_survivor = True
+        cell.survivor_severity = severity
 
     def mark_scanned(self, x: int, y: int) -> None:
         self.get_cell(x, y).scanned = True
@@ -31,6 +34,9 @@ class Grid:
 
     def has_survivor(self, x: int, y: int) -> bool:
         return self.get_cell(x, y).has_survivor
+
+    def survivor_severity(self, x: int, y: int) -> int | None:
+        return self.get_cell(x, y).survivor_severity
 
     def all_positions(self) -> list[tuple[int, int]]:
         return [(x, y) for y in range(self.height) for x in range(self.width)]
