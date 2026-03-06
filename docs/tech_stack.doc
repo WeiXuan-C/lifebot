@@ -1,0 +1,122 @@
+1️⃣ Programming Language
+
+Python 3.x (free, easy for beginners, widely supported)
+
+Download: https://www.python.org/downloads/
+
+Features needed: classes (OOP), lists, dicts, random, print/logging
+
+2️⃣ IDE / Code Editor
+
+VS Code (free, lightweight, supports Python)
+
+Download: https://code.visualstudio.com/
+
+Extensions:
+
+Python extension (official)
+
+Pylance (intellisense)
+
+Code Runner (optional, run Python quickly)
+
+Alternative: PyCharm Community Edition (free)
+
+3️⃣ Simulation / Agent Frameworks
+
+Option 1 – Simple Python simulation (offline)
+
+Use 2D grid + classes
+
+Only Python standard libraries: random, time, copy, math
+
+Option 2 – Agent-based library (optional for polish)
+
+Mesa → free, Python-based, supports agents & grid simulation
+
+Docs: https://mesa.readthedocs.io/
+
+Optional agent framework (offline demo friendly)
+
+Microsoft AutoGen (can run locally, optional)
+
+LangChain local setup (offline mode)
+
+Vercel AI SDK (offline dev possible)
+
+4️⃣ MCP Protocol (Mandatory)
+
+MCP Python SDK → free, required for drone-agent communication
+
+GitHub: https://github.com/modelcontextprotocol/python-sdk
+
+Use MCP to:
+
+Expose drone tools: move_to(), get_battery_status(), thermal_scan()
+
+Allow agent to dynamically discover drones
+
+5️⃣ Visualization Tools (Optional but recommended)
+
+Console output / ASCII grid → no cost
+
+Use print() + emojis or symbols for drones 🛸 and survivors 🧍
+
+Tkinter → simple free GUI for Python
+
+Standard Python library → no installation needed
+
+Matplotlib → optional grid visualization
+
+pip install matplotlib (free)
+
+6️⃣ Version Control & Project Management
+
+Git → free, local version control
+
+Download: https://git-scm.com/
+
+GitHub → optional remote backup (free public/private repos)
+
+https://github.com/
+
+7️⃣ Random Data / Simulation Inputs
+
+Python random module → generate disaster maps & survivor positions
+
+numpy → optional, for grid math & distance calculation
+
+copy → optional, to duplicate grid state
+
+8️⃣ Documentation / References (All Free)
+
+MCP docs → https://modelcontextprotocol.io/introduction
+
+Mesa agent-based simulation docs → https://mesa.readthedocs.io/
+
+Hackathon Case Booklet (provided by USM) → contains all requirements
+
+9️⃣ Optional Polishing / Demo Tools (Free)
+
+Colorama → colored terminal output (pip install colorama)
+
+PrettyTable → nice table display for grid or logs (pip install prettytable)
+
+Jupyter Notebook → optional interactive demo (pip install notebook)
+
+10️⃣ Summary / Minimum Required Stack
+
+You absolutely can do this with:
+
+Python 3.x
+
+VS Code
+
+MCP Python SDK
+
+random + print for simulation
+
+Optional: Mesa / Tkinter / Colorama
+
+Everything else is optional for polish or better visualization.
+💡 No paid AI APIs or cloud services needed → fully offline + zero cost

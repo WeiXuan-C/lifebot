@@ -1,0 +1,60 @@
+Case Study 3: First Responder of the Future – Decentralised Swarm Intelligence
+Track: Agentic AI (Decentralised Swarm Intelligence) 
+
+1. Real-World Context
+ASEAN region is on the Pacific Ring of Fire → high risk of super typhoons and earthquakes.
+First 72 hours after a disaster are critical for rescue.
+Terrestrial communication fails (cell towers & internet) → causes communication blackout.
+Standard cloud-based AI models fail during this period.（依赖云端的AI模型在此期间无法使用）
+Challenge: Build a self-healing rescue swarm that:
+- Operates at the edge (offline-capable).
+- Acts as a collective AI brain.
+- Ensures aid reaches survivors even without internet.
+
+2. Problem Statement
+Current rescue models depend on high-bandwidth cloud connectivity → fail when infrastructure collapses.
+Centralized systems are vulnerable during disasters.
+Need: An Autonomous Command Agent operating at the edge.（需要一个自主指挥AI代理，在本地边缘环境运行）
+Capabilities required:
+- Map disaster zones autonomously.（自动绘制灾区地图）
+- Detect survivors using on-device AI.（利用设备端AI检测幸存者）
+- Manage drone resources efficiently via Model Context Protocol (MCP).
+Goal: Ensure aid reaches survivors even without human pilots or cloud access.
+
+3. Technical Challenge & Sub-tasks
+Autonomous Mission Planning
+- Develop a central Command Agent.
+- Decompose high-level goals into sequenced tool calls (e.g., scan a quadrant for thermal signatures).（把总体目标拆解成具体操作步骤，例如扫描某一区域的热成像）
+Build an MCP server exposing drone functions:
+- move_to(x,y)
+- get_battery_status()
+- thermal_scan()
+Strategic Resource Management
+- Implement reasoning logic for effective multi-drone management.
+- Ensure search coverage optimization.
+- Recall drones for simulated charging before battery failure.（模拟电量耗尽前召回无人机充电）
+Real-time Tool Discovery
+- Agent should not use hard-coded drone IDs.（不能使用固定无人机ID）
+- Use MCP discovery mechanism to detect active drones.（通过MCP发现当前活跃无人机）
+- Adapt mission plans based on available fleet.（根据可用无人机调整任务计划）
+
+4. Technical Feasibility & Constraints
+Simulation-Only
+- Software simulation; no physical hardware needed.
+- Use a 2D grid or simple Python-based environment for disaster zone.（可用二维网格或Python模拟环境表示灾区）
+Mandatory Protocol
+- All communication between Agent (LLM) and Drones (code) must use Model Context Protocol (MCP).（代理与无人机通信必须使用MCP协议）
+- Hard-coding drone movements is prohibited.（禁止硬编码无人机动作）
+Agentic Reasoning
+- Must demonstrate Chain-of-Thought reasoning.
+- Agent explains logic before executing tools (e.g., battery levels influencing sector assignments).
+
+5. Recommended Data Sources & Toolkits
+Simulation Environments: Mesa or FastAPI mock environment.
+Agent Frameworks: LangChain, Microsoft AutoGen, or Vercel AI SDK.
+Connector: MCP Python SDK.
+
+6. Expected Deliverables
+The Orchestrator: Functional AI agent managing a simulated fleet of 3–5 drones.
+MCP Server Implementation: Code exposing drone tools to the agent.
+Mission Log: Demonstration of agent’s step-by-step reasoning and successful mission completion.

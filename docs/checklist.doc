@@ -1,0 +1,74 @@
+1. Core Concept
+✅ Must work offline / edge environment → no internet/cloud
+✅ AI agent = autonomous command system that makes decisions for drones
+✅ Demonstrates chain-of-thought reasoning → explain logic before each action
+✅ Simulation-only → no physical drones needed
+
+2️⃣ Environment & Simulation
+✅ Represent disaster zone with 2D grid (rows × columns)
+✅ Cells track:
+- has_survivor
+- scanned status
+✅ Use Python; optional frameworks: Mesa or simple grid + console
+✅ Simulate 3–5 drones with attributes:
+- x, y position
+- battery
+- status (idle, moving, charging, scanning)
+
+3️⃣ Drone Tools / MCP Functions
+✅ Must implement an MCP server exposing drone tools:
+- move_to(x, y) → move drone to target cell
+- get_battery_status() → check battery
+- thermal_scan() → scan cell for survivors
+✅ No hard-coded drone IDs → use MCP discovery to detect active drones
+✅ Agent should adapt mission plans based on available drones
+
+4️⃣ Agent Requirements
+✅ Decompose high-level goal → sequenced actions
+Example: “Scan South-East quadrant for thermal signatures” → assign drones
+✅ Strategic Resource Management:
+- Optimize search coverage
+- Recall drones before battery runs out (simulate charging)
+✅ Explain reasoning at each step → example log:
+- Drone 1 battery low → returning to base
+- Drone 2 closest to Sector 3 → assigned to scan
+- Drone 3 moves to Sector 5 for wider coverage
+✅ Fully autonomous → no human intervention in mission planning
+
+5️⃣ Mission Planning
+✅ Assign drones dynamically based on:
+- Distance to target
+- Battery level
+- Remaining unscanned sectors
+✅ Avoid idle drones unless necessary
+✅ Ensure all survivors are detected efficiently
+
+6️⃣ Technical Feasibility / Constraints
+✅ Software-only simulation (Python)
+✅ Must demonstrate edge AI reasoning → offline decision-making
+✅ MCP protocol is mandatory → agent ↔ drone communication
+✅ No hardcoding → all decisions dynamic
+
+7️⃣ Recommended Tools / Libraries
+- Python 3.x
+- Optional frameworks:
+- Mesa → agent-based simulation
+- LangChain, Microsoft AutoGen, Vercel AI SDK → agent framework
+- MCP Python SDK → drone-agent communication
+- Libraries for console or GUI visualization:
+- tkinter → optional GUI
+- colorama → optional colored console logs
+
+8️⃣ Deliverables Checklist
+✅ Orchestrator → agent managing fleet (3–5 drones)
+✅ MCP server implementation → exposes drone tools
+✅ Mission log → step-by-step reasoning and completed mission
+✅ Optional visualization → grid display or console output
+✅ Fully offline, reproducible, hackathon-ready
+
+9️⃣ Hackathon / Demo Tips
+✅ Show step-by-step reasoning logs → judges see AI thinking
+✅ Keep grid and drones small → demo runs smoothly
+✅ Randomly place survivors → show repeatable demo with random.seed()
+✅ Optional: print grid + drone positions for clarity
+✅ Clean, readable Python code → OOP structure appreciated
